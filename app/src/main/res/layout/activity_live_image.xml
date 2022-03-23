@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.LiveImageActivity">
+
+    <TextView
+        android:id="@+id/txvLiveMainTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_marginLeft="@dimen/txv_margin"
+        android:layout_marginTop="@dimen/txv_margin"
+        android:layout_marginRight="@dimen/txv_margin"
+        android:text="@string/imageChoose"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:justificationMode="inter_word"
+        android:textSize="@dimen/maintitle_textsize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnClickImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open Camera"
+        android:textSize="@dimen/btn_txtsize"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_marginTop="30dp"
+        android:padding="20dp"
+        android:background="@color/custom_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvLiveMainTitle" />
+
+    <TextView
+        android:id="@+id/txvLiveSmileTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="@dimen/txv_margin"
+        android:text="Smiling Probability  -"
+        android:textSize="@dimen/txv_textsize"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnClickImage" />
+
+    <TextView
+        android:id="@+id/txvLiveSmileProb"
+        android:textSize="@dimen/txv_textsize"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="@dimen/txv_margin"
+        app:layout_constraintStart_toEndOf="@+id/txvLiveSmileTitle"
+        app:layout_constraintTop_toBottomOf="@+id/btnClickImage" />
+
+    <TextView
+        android:id="@+id/txvLiveIsSmiling"
+        android:textSize="@dimen/txv_textsize"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/txv_margin"
+        android:layout_marginStart="@dimen/txv_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvLiveSmileTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/txvLiveRightEyeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="@dimen/txv_margin"
+        android:text="Right Eye Open Probability  -"
+        android:textSize="@dimen/txv_textsize"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvLiveIsSmiling" />
+
+    <TextView
+        android:id="@+id/txvLiveRightProb"
+        android:textSize="@dimen/txv_textsize"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="@dimen/txv_margin"
+        app:layout_constraintStart_toEndOf="@+id/txvLiveRightEyeTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txvLiveIsSmiling" />
+
+    <TextView
+        android:id="@+id/txvLiveIsRightOpen"
+        android:textSize="@dimen/txv_textsize"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/txv_margin"
+        android:layout_marginStart="@dimen/txv_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvLiveRightEyeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/txvLiveLeftEyeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="@dimen/txv_margin"
+        android:text="Left Eye Open Probability  -"
+        android:textSize="@dimen/txv_textsize"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvLiveIsRightOpen" />
+
+    <TextView
+        android:id="@+id/txvLiveLeftProb"
+        android:textSize="@dimen/txv_textsize"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="@dimen/txv_margin"
+        app:layout_constraintStart_toEndOf="@+id/txvLiveLeftEyeTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txvLiveIsRightOpen" />
+
+    <TextView
+        android:id="@+id/txvLiveIsLeftOpen"
+        android:textSize="@dimen/txv_textsize"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/txv_margin"
+        android:layout_marginStart="@dimen/txv_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txvLiveLeftEyeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
