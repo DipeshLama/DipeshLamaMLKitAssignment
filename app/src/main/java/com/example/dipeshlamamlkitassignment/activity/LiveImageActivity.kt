@@ -52,7 +52,7 @@ class LiveImageActivity : AppCompatActivity(),View.OnClickListener {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode === RequestCodeConstants.REQUEST_IMAGE_CAPTURE && resultCode === Activity.RESULT_OK) {
+        if (requestCode == RequestCodeConstants.REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             val extra: Bundle = data!!.extras!!
             val bitmap = extra["data"] as Bitmap?
             detectFace(bitmap!!)
