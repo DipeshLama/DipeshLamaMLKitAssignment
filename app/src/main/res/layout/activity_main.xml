@@ -7,19 +7,33 @@
     tools:context=".activity.MainActivity">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnLiveImage"
+        android:id="@+id/btnLivePreview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/button_height"
         android:text="Face detection in realtime image"
         android:textColor="@color/white"
         android:textAllCaps="false"
         android:textSize="@dimen/btn_txtsize"
-        android:background="@color/custom_orange"
+        android:background="@color/custom_purple"
         android:layout_margin="@dimen/button_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLiveImage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_margin="@dimen/button_margin"
+        android:background="@color/custom_orange"
+        android:text="Face detection in clicked image"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/btn_txtsize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLivePreview" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSelectImage"

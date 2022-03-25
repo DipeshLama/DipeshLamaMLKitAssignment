@@ -9,6 +9,7 @@ import android.provider.MediaStore
 import android.view.View
 import com.example.dipeshlamamlkitassignment.R
 import com.example.dipeshlamamlkitassignment.constants.RequestCodeConstants
+import com.example.dipeshlamamlkitassignment.constants.TextConstants
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetector
@@ -79,27 +80,27 @@ class SelectImageActivity : AppCompatActivity(),View.OnClickListener {
                         val smileProb = face.smilingProbability
                         txvSelectSmileProb.text = smileProb.toString()
                         if(smileProb!! > 0.6){
-                            txvSelectIsSmiling.text = "The person is smiling"
+                            txvSelectIsSmiling.text = TextConstants.isSmiling
                         }else{
-                            txvSelectIsSmiling.text = "The person is not smiling"
+                            txvSelectIsSmiling.text = TextConstants.notSmiling
                         }
                     }
                     if(face.rightEyeOpenProbability != null){
                         val rightEyeOpenProb = face.rightEyeOpenProbability
                         txvSelectRightProb.text = rightEyeOpenProb.toString()
                         if(rightEyeOpenProb!! > 0.5){
-                            txvSelectIsRightOpen.text = "Right eye is open "
+                            txvSelectIsRightOpen.text = TextConstants.rightEyeOpen
                         }else{
-                            txvSelectIsRightOpen.text = "Right eye is close"
+                            txvSelectIsRightOpen.text = TextConstants.rightEyeClose
                         }
                     }
                     if(face.leftEyeOpenProbability != null){
                         val leftEyeOpenProb = face.leftEyeOpenProbability
                         txvSelectLeftProb.text = leftEyeOpenProb.toString()
                         if(leftEyeOpenProb!! > 0.5){
-                            txvSelectIsLeftOpen.text = "Left eye is open "
+                            txvSelectIsLeftOpen.text = TextConstants.leftEyeOpen
                         }else{
-                            txvSelectIsLeftOpen.text = "Left eye is close"
+                            txvSelectIsLeftOpen.text = TextConstants.leftEyeClose
                         }
                     }
                 }

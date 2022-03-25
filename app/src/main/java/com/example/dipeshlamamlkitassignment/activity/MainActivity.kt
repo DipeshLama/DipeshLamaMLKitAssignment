@@ -13,12 +13,14 @@ import com.example.dipeshlamamlkitassignment.R
 class MainActivity : AppCompatActivity(),View.OnClickListener {
     private lateinit var btnRealImage : AppCompatButton
     private lateinit var btnSelectImage : AppCompatButton
+    private lateinit var btnLivePreview : AppCompatButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         btnRealImage = findViewById(R.id.btnLiveImage)
         btnSelectImage = findViewById(R.id.btnSelectImage)
+        btnLivePreview = findViewById(R.id.btnLivePreview)
 
         if (!hasPermissions()){
             requestPermission()
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
     private fun initListener (){
         btnRealImage.setOnClickListener(this)
         btnSelectImage.setOnClickListener(this)
+        btnLivePreview.setOnClickListener(this)
     }
 
     private fun hasPermissions() : Boolean{
@@ -60,6 +63,9 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             }
             btnSelectImage ->{
                 startActivity(Intent(this, SelectImageActivity::class.java ))
+            }
+            btnLivePreview ->{
+                startActivity(Intent(this, LivePreviewActivity::class.java))
             }
         }
     }

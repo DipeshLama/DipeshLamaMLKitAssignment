@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/DipeshLamaMLKitAssignment/app/src/main/res/drawable/ic_switch_camera_white_48dp.xml" value="0.124" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/DipeshLamaMLKitAssignment/app/src/main/res/layout/activity_live_image.xml" value="0.25" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/DipeshLamaMLKitAssignment/app/src/main/res/layout/activity_live_preview.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/DipeshLamaMLKitAssignment/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/DipeshLamaMLKitAssignment/app/src/main/res/layout/activity_select_image.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/DipeshLamaMLKitAssignment/app/src/main/res/layout/toggle.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

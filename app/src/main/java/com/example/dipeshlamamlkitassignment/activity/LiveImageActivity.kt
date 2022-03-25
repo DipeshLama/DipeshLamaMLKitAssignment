@@ -10,7 +10,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dipeshlamamlkitassignment.R
+import com.example.dipeshlamamlkitassignment.constants.BundleConstants
+import com.example.dipeshlamamlkitassignment.constants.ErrorConstants
 import com.example.dipeshlamamlkitassignment.constants.RequestCodeConstants
+import com.example.dipeshlamamlkitassignment.constants.TextConstants
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetector
@@ -46,7 +49,7 @@ class LiveImageActivity : AppCompatActivity(),View.OnClickListener {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(intent, RequestCodeConstants.REQUEST_IMAGE_CAPTURE);
         }else{
-            Toast.makeText(this, "Something is wrong.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, ErrorConstants.errorMessage, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -54,7 +57,7 @@ class LiveImageActivity : AppCompatActivity(),View.OnClickListener {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RequestCodeConstants.REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             val extra: Bundle = data!!.extras!!
-            val bitmap = extra["data"] as Bitmap?
+            val bitmap = extra[BundleConstants.data] as Bitmap?
             detectFace(bitmap!!)
         }
     }
@@ -84,9 +87,9 @@ class LiveImageActivity : AppCompatActivity(),View.OnClickListener {
                         val smileProb = face.smilingProbability
                         txvLiveSmileProb.text = smileProb.toString()
                         if(smileProb!! > 0.6){
-                            txvLiveIsSmiling.text = "The person is smiling"
+                            txvLiveIsSmiling.text = TextConstants.isSmiling
                         }else{
-                            txvLiveIsSmiling.text = "The person is not smiling"
+                            txvLiveIsSmiling.text = TextConstants.notSmiling
                         }
                     }
 
@@ -94,9 +97,9 @@ class LiveImageActivity : AppCompatActivity(),View.OnClickListener {
                         val rightEyeOpenProb = face.rightEyeOpenProbability
                         txvLiveRightProb.text = rightEyeOpenProb.toString()
                         if(rightEyeOpenProb!! > 0.5){
-                            txvLiveIsRightOpen.text = "Right eye is open "
+                            txvLiveIsRightOpen.text = TextConstants.rightEyeOpen
                         }else{
-                            txvLiveIsRightOpen.text = "Right eye is close"
+                            txvLiveIsRightOpen.text = TextConstants.rightEyeClose
                         }
                     }
 
@@ -104,9 +107,9 @@ class LiveImageActivity : AppCompatActivity(),View.OnClickListener {
                         val leftEyeOpenProb = face.leftEyeOpenProbability
                         txvLiveLeftProb.text = leftEyeOpenProb.toString()
                         if(leftEyeOpenProb!! > 0.5){
-                            txvLiveIsLeftOpen.text = "Left eye is open "
+                            txvLiveIsLeftOpen.text = TextConstants.leftEyeOpen
                         }else{
-                            txvLiveIsLeftOpen.text = "Left eye is close"
+                            txvLiveIsLeftOpen.text = TextConstants.leftEyeClose
                         }
                     }
                 }
