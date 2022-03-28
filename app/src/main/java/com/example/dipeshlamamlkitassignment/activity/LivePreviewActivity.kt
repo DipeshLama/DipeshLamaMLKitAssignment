@@ -7,6 +7,7 @@ import android.widget.CompoundButton
 import android.widget.RadioGroup
 import android.widget.Toast
 import com.example.dipeshlamamlkitassignment.R
+import com.example.dipeshlamamlkitassignment.constants.ErrorConstants
 import com.example.dipeshlamamlkitassignment.detector.FaceDetectorProcessor
 import com.example.dipeshlamamlkitassignment.vision.CameraSource
 import com.example.dipeshlamamlkitassignment.vision.CameraSourcePreview
@@ -58,7 +59,7 @@ class LivePreviewActivity : AppCompatActivity(),CompoundButton.OnCheckedChangeLi
             )
 
         }catch (e: Exception){
-            Toast.makeText(applicationContext, "Can not create image processor: " + e.message, Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, ErrorConstants.camerSourceError+ e.message, Toast.LENGTH_LONG).show()
         }
     }
 

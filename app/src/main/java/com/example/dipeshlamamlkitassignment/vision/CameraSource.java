@@ -258,15 +258,6 @@ public class CameraSource {
     }
     Camera camera = Camera.open(requestedCameraId);
 
-//    SizePair sizePair = PreferenceUtils.getCameraPreviewSizePair(activity, requestedCameraId);
-//    if (sizePair == null) {
-//      sizePair =
-//          selectSizePair(
-//              camera,
-//              DEFAULT_REQUESTED_CAMERA_PREVIEW_WIDTH,
-//              DEFAULT_REQUESTED_CAMERA_PREVIEW_HEIGHT);
-//    }
-
     SizePair sizePair =
             selectSizePair(
                     camera,
