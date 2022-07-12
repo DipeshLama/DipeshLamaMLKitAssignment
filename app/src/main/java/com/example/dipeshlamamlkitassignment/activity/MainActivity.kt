@@ -10,10 +10,10 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.app.ActivityCompat
 import com.example.dipeshlamamlkitassignment.R
 
-class MainActivity : AppCompatActivity(),View.OnClickListener {
-    private lateinit var btnRealImage : AppCompatButton
-    private lateinit var btnSelectImage : AppCompatButton
-    private lateinit var btnLivePreview : AppCompatButton
+class MainActivity : AppCompatActivity(), View.OnClickListener {
+    private lateinit var btnRealImage: AppCompatButton
+    private lateinit var btnSelectImage: AppCompatButton
+    private lateinit var btnLivePreview: AppCompatButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,23 +22,25 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         btnSelectImage = findViewById(R.id.btnSelectImage)
         btnLivePreview = findViewById(R.id.btnLivePreview)
 
-        if (!hasPermissions()){
+        if (!hasPermissions()) {
             requestPermission()
         }
 
         initListener()
     }
 
-    private fun initListener (){
+    private fun initListener() {
         btnRealImage.setOnClickListener(this)
         btnSelectImage.setOnClickListener(this)
         btnLivePreview.setOnClickListener(this)
     }
 
-    private fun hasPermissions() : Boolean{
+    private fun hasPermissions(): Boolean {
         var hasPermission = true
-        for (permission in permissions){
-            if(ActivityCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED ){
+        for (permission in permissions) {
+            if (ActivityCompat.checkSelfPermission(this,
+                    permission) != PackageManager.PERMISSION_GRANTED
+            ) {
                 hasPermission = false
                 break
             }
@@ -52,19 +54,19 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         android.Manifest.permission.READ_EXTERNAL_STORAGE
     )
 
-    private fun requestPermission(){
+    private fun requestPermission() {
         ActivityCompat.requestPermissions(this, permissions, 1)
     }
 
     override fun onClick(view: View?) {
-        when (view){
+        when (view) {
             btnRealImage -> {
-                startActivity(Intent(this, LiveImageActivity::class.java ))
+                startActivity(Intent(this, LiveImageActivity::class.java))
             }
-            btnSelectImage ->{
-                startActivity(Intent(this, SelectImageActivity::class.java ))
+            btnSelectImage -> {
+                startActivity(Intent(this, SelectImageActivity::class.java))
             }
-            btnLivePreview ->{
+            btnLivePreview -> {
                 startActivity(Intent(this, LivePreviewActivity::class.java))
             }
         }

@@ -46,7 +46,7 @@ class LiveImageActivity : AppCompatActivity(),View.OnClickListener {
 
     private fun openCamera (){
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        if (intent.resolveActivity(getPackageManager()) != null) {
+        if (intent.resolveActivity(packageManager) != null) {
             startActivityForResult(intent, RequestCodeConstants.REQUEST_IMAGE_CAPTURE);
         }else{
             Toast.makeText(this, ErrorConstants.errorMessage, Toast.LENGTH_SHORT).show()
