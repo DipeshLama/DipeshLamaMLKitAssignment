@@ -27,6 +27,7 @@ class BarcodeScanningActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_barcode_scanning)
+
         previewView = findViewById(R.id.pvCamera)
         this.window.setFlags(1024, 1024)
         cameraExecutor = Executors.newSingleThreadExecutor()
@@ -51,16 +52,21 @@ class BarcodeScanningActivity : AppCompatActivity() {
 
     private fun bindPreview(processCameraProvider: ProcessCameraProvider) {
         val preview = Preview.Builder().build()
+
         val cameraSelector =
             CameraSelector.Builder()
                 .requireLensFacing(
                     CameraSelector.LENS_FACING_BACK).build()
+
         preview.setSurfaceProvider(previewView.surfaceProvider)
+
         val imageCapture = ImageCapture.Builder().build()
+
         val imageAnalysis = ImageAnalysis.Builder()
             .setTargetResolution(Size(1280, 720))
             .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
             .build()
+
         imageAnalysis.setAnalyzer(cameraExecutor, analyzer)
         processCameraProvider.unbindAll()
         processCameraProvider.bindToLifecycle(this,

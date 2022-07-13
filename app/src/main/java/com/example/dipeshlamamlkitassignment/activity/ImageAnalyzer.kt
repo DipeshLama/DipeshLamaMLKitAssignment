@@ -1,19 +1,19 @@
 package com.example.dipeshlamamlkitassignment.activity
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import androidx.fragment.app.FragmentManager
 import com.example.dipeshlamamlkitassignment.fragment.BottomSheetFragment
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.common.InputImage
 
 class ImageAnalyzer(
-    val fragmentManager: FragmentManager,
-    val dialog: BottomSheetFragment,
+    private val fragmentManager: FragmentManager,
+    private val dialog: BottomSheetFragment,
 ) : ImageAnalysis.Analyzer {
 
     override fun analyze(image: ImageProxy) {
@@ -62,6 +62,7 @@ class ImageAnalyzer(
                     val ssid = barcode.wifi!!.ssid
                     val password = barcode.wifi!!.password
                     val type = barcode.wifi!!.encryptionType
+                    Log.d("typeWifi", password.toString())
                 }
                 Barcode.TYPE_URL -> {
                     if (!dialog.isAdded) {

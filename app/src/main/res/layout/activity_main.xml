@@ -62,7 +62,7 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/btn_txtsize"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnBarcode"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSelectImage" />
