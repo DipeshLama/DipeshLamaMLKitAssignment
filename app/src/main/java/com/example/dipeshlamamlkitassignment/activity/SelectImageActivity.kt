@@ -54,8 +54,8 @@ class SelectImageActivity : AppCompatActivity(),View.OnClickListener {
             if(picUri != null){
                 try{
                     bitmap = MediaStore.Images.Media.getBitmap(contentResolver,picUri)
-                    val image : InputImage? = InputImage.fromFilePath(this, picUri!!)
-                    detectFace(image!!)
+                    val image : InputImage = InputImage.fromFilePath(this, picUri!!)
+                    detectFace(image)
                 }catch (e : IOException){
                     e.printStackTrace()
                 }

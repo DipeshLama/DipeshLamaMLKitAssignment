@@ -21,13 +21,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DipeshLamaMLKitAssignment">
         <activity
-            android:name=".activity.LivePreviewActivity"
+            android:name=".activity.BarcodeScanningActivity"
             android:exported="false" />
 
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
-            android:value="face" />
+            android:value="face, ocr, barcode" />
 
+        <activity
+            android:name=".activity.TextRecognitionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.LivePreviewActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.SelectImageActivity"
             android:exported="false" />

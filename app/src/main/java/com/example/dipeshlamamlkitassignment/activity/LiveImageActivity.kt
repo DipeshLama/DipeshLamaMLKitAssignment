@@ -21,10 +21,9 @@ import com.google.mlkit.vision.face.FaceDetectorOptions
 import kotlinx.android.synthetic.main.activity_live_image.*
 import java.lang.Exception
 
-
-class LiveImageActivity : AppCompatActivity(),View.OnClickListener {
-    private lateinit var image : InputImage
-    private lateinit var detector : FaceDetector
+class LiveImageActivity : AppCompatActivity(), View.OnClickListener {
+    private lateinit var image: InputImage
+    private lateinit var detector: FaceDetector
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,30 +31,32 @@ class LiveImageActivity : AppCompatActivity(),View.OnClickListener {
         initListener()
     }
 
-    private fun initListener(){
+    private fun initListener() {
         btnClickImage.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         when (view) {
-            btnClickImage ->{
+            btnClickImage -> {
                 openCamera()
             }
         }
     }
 
-    private fun openCamera (){
+    private fun openCamera() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         if (intent.resolveActivity(packageManager) != null) {
             startActivityForResult(intent, RequestCodeConstants.REQUEST_IMAGE_CAPTURE);
-        }else{
+        } else {
             Toast.makeText(this, ErrorConstants.errorMessage, Toast.LENGTH_SHORT).show()
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RequestCodeConstants.REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+        if (requestCode == RequestCodeConstants.REQUEST_IMAGE_CAPTURE
+            && resultCode == Activity.RESULT_OK
+        ) {
             val extra: Bundle = data!!.extras!!
             val bitmap = extra[BundleConstants.data] as Bitmap?
             detectFace(bitmap!!)
@@ -63,7 +64,7 @@ class LiveImageActivity : AppCompatActivity(),View.OnClickListener {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun detectFace (bitmap : Bitmap){
+    private fun detectFace(bitmap: Bitmap) {
         val options = FaceDetectorOptions.Builder()
             .setPerformanceMode(FaceDetectorOptions.PERFORMANCE_MODE_ACCURATE)
             .setLandmarkMode(FaceDetectorOptions.LANDMARK_MODE_ALL)
@@ -73,9 +74,9 @@ class LiveImageActivity : AppCompatActivity(),View.OnClickListener {
             .build()
 
         try {
-            image = InputImage.fromBitmap(bitmap,0)
+            image = InputImage.fromBitmap(bitmap, 0)
             detector = FaceDetection.getClient(options)
-        }catch (e: Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
 
@@ -83,32 +84,32 @@ class LiveImageActivity : AppCompatActivity(),View.OnClickListener {
             .addOnSuccessListener { faces ->
                 for (face in faces) {
 
-                    if(face.smilingProbability != null){
+                    if (face.smilingProbability != null) {
                         val smileProb = face.smilingProbability
                         txvLiveSmileProb.text = smileProb.toString()
-                        if(smileProb!! > 0.6){
+                        if (smileProb!! > 0.6) {
                             txvLiveIsSmiling.text = TextConstants.isSmiling
-                        }else{
+                        } else {
                             txvLiveIsSmiling.text = TextConstants.notSmiling
                         }
                     }
 
-                    if(face.rightEyeOpenProbability != null){
+                    if (face.rightEyeOpenProbability != null) {
                         val rightEyeOpenProb = face.rightEyeOpenProbability
                         txvLiveRightProb.text = rightEyeOpenProb.toString()
-                        if(rightEyeOpenProb!! > 0.5){
+                        if (rightEyeOpenProb!! > 0.5) {
                             txvLiveIsRightOpen.text = TextConstants.rightEyeOpen
-                        }else{
+                        } else {
                             txvLiveIsRightOpen.text = TextConstants.rightEyeClose
                         }
                     }
 
-                    if(face.leftEyeOpenProbability != null){
+                    if (face.leftEyeOpenProbability != null) {
                         val leftEyeOpenProb = face.leftEyeOpenProbability
                         txvLiveLeftProb.text = leftEyeOpenProb.toString()
-                        if(leftEyeOpenProb!! > 0.5){
+                        if (leftEyeOpenProb!! > 0.5) {
                             txvLiveIsLeftOpen.text = TextConstants.leftEyeOpen
-                        }else{
+                        } else {
                             txvLiveIsLeftOpen.text = TextConstants.leftEyeClose
                         }
                     }

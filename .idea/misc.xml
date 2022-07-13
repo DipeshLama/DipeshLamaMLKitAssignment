@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Resources/Helper/DipeshLamaMLKitAssignment/app/src/main/res/layout/activity_barcode_scanning.xml" value="0.1921875" />
+        <entry key="..\:/Resources/Helper/DipeshLamaMLKitAssignment/app/src/main/res/layout/activity_live_image.xml" value="0.1921875" />
+        <entry key="..\:/Resources/Helper/DipeshLamaMLKitAssignment/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Resources/Helper/DipeshLamaMLKitAssignment/app/src/main/res/layout/activity_text_recognition.xml" value="0.1921875" />
+        <entry key="..\:/Resources/Helper/DipeshLamaMLKitAssignment/app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.1921875" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/DipeshLamaMLKitAssignment/app/src/main/res/drawable/ic_switch_camera_white_48dp.xml" value="0.124" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/DipeshLamaMLKitAssignment/app/src/main/res/layout/activity_live_image.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/DipeshLamaMLKitAssignment/app/src/main/res/layout/activity_live_preview.xml" value="0.20416666666666666" />
@@ -17,5 +22,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2" />
+      </ProjectState>
+    </option>
   </component>
 </project>

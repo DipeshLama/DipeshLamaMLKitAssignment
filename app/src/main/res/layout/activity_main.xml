@@ -10,16 +10,17 @@
         android:id="@+id/btnLivePreview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/button_height"
-        android:text="Face detection in realtime image"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:textSize="@dimen/btn_txtsize"
-        android:background="@color/custom_purple"
         android:layout_margin="@dimen/button_margin"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/custom_purple"
+        android:text="Face detection in realtime image"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/btn_txtsize"
+        app:layout_constraintBottom_toTopOf="@+id/btnLiveImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLiveImage"
@@ -31,9 +32,10 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/btn_txtsize"
+        app:layout_constraintBottom_toTopOf="@+id/btnSelectImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnLivePreview" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLivePreview" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSelectImage"
@@ -45,8 +47,39 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/btn_txtsize"
+        app:layout_constraintBottom_toTopOf="@id/btnTextRecognition"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnLiveImage" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLiveImage" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTextRecognition"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_margin="@dimen/button_margin"
+        android:background="@color/custom_blue"
+        android:text="Text Recognition"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/btn_txtsize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSelectImage" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnBarcode"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_margin="@dimen/button_margin"
+        android:background="@color/custom_blue"
+        android:text="Barcode Scanner"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/btn_txtsize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTextRecognition" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
