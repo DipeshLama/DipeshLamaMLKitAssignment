@@ -77,9 +77,24 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/btn_txtsize"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnObjectDetection"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnTextRecognition" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnObjectDetection"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_margin="@dimen/button_margin"
+        android:background="@color/custom_blue"
+        android:text="Object detection"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/btn_txtsize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBarcode" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

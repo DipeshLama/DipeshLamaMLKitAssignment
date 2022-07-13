@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DipeshLamaMLKitAssignment">
         <activity
+            android:name=".activity.ObjectDetectionActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.BarcodeScanningActivity"
             android:exported="false" />
 

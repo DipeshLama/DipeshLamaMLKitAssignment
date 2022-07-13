@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var btnLivePreview: AppCompatButton
     private lateinit var btnTextRecon: AppCompatButton
     private lateinit var btnBarcodeScanner: AppCompatButton
+    private lateinit var btnObjectDetection: AppCompatButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btnLivePreview = findViewById(R.id.btnLivePreview)
         btnTextRecon = findViewById(R.id.btnTextRecognition)
         btnBarcodeScanner = findViewById(R.id.btnBarcode)
+        btnObjectDetection = findViewById(R.id.btnObjectDetection)
 
         if (!hasPermissions()) {
             requestPermission()
@@ -39,6 +41,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btnLivePreview.setOnClickListener(this)
         btnTextRecon.setOnClickListener(this)
         btnBarcodeScanner.setOnClickListener(this)
+        btnObjectDetection.setOnClickListener(this)
     }
 
     private fun hasPermissions(): Boolean {
@@ -81,8 +84,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             btnBarcodeScanner -> {
                 startActivity(Intent(this, BarcodeScanningActivity::class.java))
             }
-
-
+            btnObjectDetection -> {
+                startActivity(Intent(this, ObjectDetectionActivity::class.java))
+            }
         }
     }
 }

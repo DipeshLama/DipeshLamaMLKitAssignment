@@ -18,10 +18,10 @@ import kotlinx.android.synthetic.main.activity_live_image.*
 import kotlinx.android.synthetic.main.activity_select_image.*
 import java.io.IOException
 
-class SelectImageActivity : AppCompatActivity(),View.OnClickListener {
-    private var bitmap : Bitmap? = null
-    private var picUri : Uri? = null
-    private lateinit var detector : FaceDetector
+class SelectImageActivity : AppCompatActivity(), View.OnClickListener {
+    private var bitmap: Bitmap? = null
+    private var picUri: Uri? = null
+    private lateinit var detector: FaceDetector
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,19 +29,19 @@ class SelectImageActivity : AppCompatActivity(),View.OnClickListener {
         initListener()
     }
 
-    private fun initListener () {
+    private fun initListener() {
         btnSelectFromGallery.setOnClickListener(this)
     }
 
-    private fun openGallery () {
+    private fun openGallery() {
         val intent = Intent(Intent.ACTION_PICK)
-        intent.type= "image/*"
-        startActivityForResult(intent,RequestCodeConstants.REQUEST_GALLERY_CODE)
+        intent.type = "image/*"
+        startActivityForResult(intent, RequestCodeConstants.REQUEST_GALLERY_CODE)
     }
 
     override fun onClick(view: View?) {
-        when(view){
-            btnSelectFromGallery ->{
+        when (view) {
+            btnSelectFromGallery -> {
                 openGallery()
             }
         }
@@ -49,21 +49,21 @@ class SelectImageActivity : AppCompatActivity(),View.OnClickListener {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == RequestCodeConstants.REQUEST_GALLERY_CODE){
+        if (requestCode == RequestCodeConstants.REQUEST_GALLERY_CODE) {
             picUri = data?.data
-            if(picUri != null){
-                try{
-                    bitmap = MediaStore.Images.Media.getBitmap(contentResolver,picUri)
-                    val image : InputImage = InputImage.fromFilePath(this, picUri!!)
+            if (picUri != null) {
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(contentResolver, picUri)
+                    val image: InputImage = InputImage.fromFilePath(this, picUri!!)
                     detectFace(image)
-                }catch (e : IOException){
+                } catch (e: IOException) {
                     e.printStackTrace()
                 }
             }
         }
     }
 
-    private fun detectFace (image : InputImage){
+    private fun detectFace(image: InputImage) {
         val options = FaceDetectorOptions.Builder()
             .setPerformanceMode(FaceDetectorOptions.PERFORMANCE_MODE_ACCURATE)
             .setLandmarkMode(FaceDetectorOptions.LANDMARK_MODE_ALL)
@@ -75,31 +75,31 @@ class SelectImageActivity : AppCompatActivity(),View.OnClickListener {
         detector = FaceDetection.getClient(options)
         detector.process(image)
             .addOnSuccessListener { faces ->
-                for (face in faces){
-                    if(face.smilingProbability != null){
+                for (face in faces) {
+                    if (face.smilingProbability != null) {
                         val smileProb = face.smilingProbability
                         txvSelectSmileProb.text = smileProb.toString()
-                        if(smileProb!! > 0.6){
+                        if (smileProb!! > 0.6) {
                             txvSelectIsSmiling.text = TextConstants.isSmiling
-                        }else{
+                        } else {
                             txvSelectIsSmiling.text = TextConstants.notSmiling
                         }
                     }
-                    if(face.rightEyeOpenProbability != null){
+                    if (face.rightEyeOpenProbability != null) {
                         val rightEyeOpenProb = face.rightEyeOpenProbability
                         txvSelectRightProb.text = rightEyeOpenProb.toString()
-                        if(rightEyeOpenProb!! > 0.5){
+                        if (rightEyeOpenProb!! > 0.5) {
                             txvSelectIsRightOpen.text = TextConstants.rightEyeOpen
-                        }else{
+                        } else {
                             txvSelectIsRightOpen.text = TextConstants.rightEyeClose
                         }
                     }
-                    if(face.leftEyeOpenProbability != null){
+                    if (face.leftEyeOpenProbability != null) {
                         val leftEyeOpenProb = face.leftEyeOpenProbability
                         txvSelectLeftProb.text = leftEyeOpenProb.toString()
-                        if(leftEyeOpenProb!! > 0.5){
+                        if (leftEyeOpenProb!! > 0.5) {
                             txvSelectIsLeftOpen.text = TextConstants.leftEyeOpen
-                        }else{
+                        } else {
                             txvSelectIsLeftOpen.text = TextConstants.leftEyeClose
                         }
                     }
